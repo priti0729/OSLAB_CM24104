@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Marksheet Generator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="theme-toggle">
+            <span>🌞</span>
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle" />
+                <span class="slider"></span>
+            </label>
+            <span>🌜</span>
+        </div>
+
+        <div class="container">
+            <div class="brand-header">
+                <div class="brand-icon">🎓</div>
+                <div>
+                    <h2 class="college-name">S B Jain Institute, Nagpur</h2>
+                    <p class="college-subtitle">Official Student Marksheet</p>
+                </div>
+            </div>
+            <div class="header-divider"></div>
+            <h1>🎓 Student Marksheet Generator</h1>
+            <p class="subtitle">Enter student details, generate marksheet, and print instantly.</p>
+
+            <div class="form-card">
+                <div class="form-grid">
+                    <div class="form-item">
+                        <label for="name">Student Name</label>
+                        <input type="text" id="name" placeholder="Enter Student Name" />
+                    </div>
+                    <div class="form-item">
+                        <label for="photo">Profile Photo (optional)</label>
+                        <input type="file" id="photo" accept="image/*" />
+                    </div>
+                    <div class="form-item">
+                        <label for="roll">Roll Number</label>
+                        <input type="text" id="roll" placeholder="Enter Roll Number" />
+                    </div>
+                    <div class="form-item">
+                        <label for="className">Class</label>
+                        <input type="text" id="className" placeholder="Enter Class" />
+                    </div>
+                    <div class="form-item">
+                        <label for="subjectCount">Number of Subjects</label>
+                        <select id="subjectCount" onchange="renderSubjectFields()">
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="subjectFields" class="subject-fields"></div>
+
+                <div id="errorBox" class="error-box" aria-live="polite"></div>
+
+                <div class="button-row">
+                    <button id="generateBtn" onclick="generateResult()" class="primary">Generate Result</button>
+                    <button id="resetBtn" onclick="resetForm()" class="secondary">Reset</button>
+                    <button id="printBtn" onclick="printMarksheet()" class="secondary">Print Marksheet</button>
+                </div>
+            </div>
+
+            <section id="result" class="result-box hidden"></section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
